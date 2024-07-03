@@ -52,14 +52,6 @@ async function bubbleSort() {
     sorting = false;
 }
 
-async function heapSort() {
-    // Implement Heap Sort
-}
-
-async function mergeSort() {
-    // Implement Merge Sort
-}
-
 function shuffleArray() {
     array = array.sort(() => Math.random() - 0.5);
     displayArray();
