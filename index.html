@@ -3,53 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorting Algorithms</title>
+    <title>Sorting Visualizer</title>
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <header>
-        Sorting Algorithms Visualization
-    </header>
-    <nav>
-        <a href="#" class="tab-link" data-tab="home">Home</a>
+    <div class="tabs">
+        <a href="#" class="tab-link active" data-tab="home">Home</a>
         <a href="#" class="tab-link" data-tab="sortings">Sortings</a>
         <a href="#" class="tab-link" data-tab="about">About</a>
-    </nav>
-    <div class="container">
-        <div id="home" class="tab-content active">
-            <h1>Welcome to Sorting Algorithms Visualization</h1>
-            <p>This site allows you to visualize various sorting algorithms.</p>
+    </div>
+    <div id="home" class="tab-content active">
+        <h1>Welcome to Sorting Visualizer</h1>
+        <p>Select a tab to start sorting!</p>
+    </div>
+    <div id="sortings" class="tab-content">
+        <div id="controls">
+            <button onclick="startSort()">Start</button>
+            <button onclick="shuffleArray()">Shuffle</button>
+            <button onclick="stopSort()">Stop</button>
+            <label for="speed">Speed:</label>
+            <input id="speed" type="range" min="0.1" max="2.5" step="0.1" value="1" onchange="updateSpeed(this.value)">
+            <label for="barCount">Bar Count:</label>
+            <select id="barCount" onchange="updateBarCount(this.value)">
+                <option value="10">10</option>
+                <option value="30">30</option>
+                <option value="50" selected>50</option>
+                <option value="70">70</option>
+                <option value="100">100</option>
+            </select>
+            <label for="sortingMethod">Sorting Method:</label>
+            <select id="sortingMethod" onchange="updateSortingMethod(this.value)">
+                <option value="bubble">Bubble Sort</option>
+                <option value="heap">Heap Sort</option>
+                <option value="merge">Merge Sort</option>
+            </select>
         </div>
-        <div id="sortings" class="tab-content">
-            <h1>Sorting Algorithms</h1>
-            <div id="controls">
-                <button onclick="startSort()">Start</button>
-                <button onclick="shuffleArray()">Shuffle</button>
-                <button onclick="stopSort()">Stop</button>
-                <label for="speed-slider">Speed:</label>
-                <input type="range" id="speed-slider" min="0.1" max="2.5" value="1" step="0.1" oninput="updateSpeed(this.value)">
-                <label for="bar-count">Number of Bars:</label>
-                <select id="bar-count" onchange="updateBarCount(this.value)">
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
-                    <option value="50" selected>50</option>
-                    <option value="60">60</option>
-                    <option value="70">70</option>
-                    <option value="80">80</option>
-                    <option value="90">90</option>
-                    <option value="100">100</option>
-                </select>
-            </div>
-            <div id="array-container"></div>
-        </div>
-        <div id="about" class="tab-content">
-            <h1>About</h1>
-            <p>This site was created to help visualize sorting algorithms using JavaScript and Node.js.</p>
-            <p>Created by Gabriel Reis for Full Stack Development of UTFPR with the purpose of acquiring skills with the indicated resources.</p>
-            <p>Dedicated platform for students to view sorting methods. The platform is open source and can be accessed at <a href="https://github.com/pinkfreud21/Sorting-Simulator-View">https://github.com/pinkfreud21/Sorting-Simulator-View</a>
-        </div>
+        <div id="array-container"></div>
+    </div>
+    <div id="about" class="tab-content">
+        <h1>About This Project</h1>
+        <p>This project visualizes different sorting algorithms.</p>
     </div>
     <script src="/js/scripts.js"></script>
 </body>

@@ -1,46 +1,48 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-header {
-    background-color: #6200ea;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    font-size: 1.5rem;
-}
-
-nav {
+.tabs {
     display: flex;
     justify-content: center;
-    background-color: #bb86fc;
-    padding: 0.5rem;
+    background-color: #5e3b91;
+    width: 100%;
 }
 
-nav a {
-    color: white;
+.tab-link {
+    padding: 10px 20px;
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-    border-radius: 4px;
+    color: white;
+    font-weight: bold;
     transition: background-color 0.3s;
 }
 
-nav a.active, nav a:hover {
-    background-color: #3700b3;
+.tab-link.active {
+    background-color: #452a6f;
 }
 
-.container {
-    padding: 2rem;
-    text-align: center;
+.tab-link:hover {
+    background-color: #452a6f;
 }
 
 .tab-content {
     display: none;
+    text-align: center;
+    padding: 20px;
+    width: 80%;
+    max-width: 1000px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
 }
 
 .tab-content.active {
@@ -48,46 +50,83 @@ nav a.active, nav a:hover {
 }
 
 #controls {
-    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-button, input[type=range], select {
-    padding: 0.5rem;
-    margin: 0.5rem;
-    border: 1px solid #6200ea;
-    border-radius: 4px;
-    background-color: white;
-    color: #6200ea;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-button:hover, input[type=range]:hover, select:hover {
-    background-color: #6200ea;
+#controls button,
+#controls select,
+#controls input[type="range"] {
+    padding: 10px;
+    border: 1px solid #452a6f;
+    border-radius: 5px;
+    background-color: #5e3b91;
     color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+#controls button:hover,
+#controls select:hover,
+#controls input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: #452a6f;
+    border-color: #5e3b91;
+}
+
+#controls input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 150px;
+    background: #d3d3d3;
+    height: 5px;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+#controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #5e3b91;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#controls input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #5e3b91;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 #array-container {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 300px;
-    border: 1px solid #ddd;
-    margin-top: 1rem;
-    background-color: white;
+    width: 100%;
+    height: 400px;
+    background-color: #eaeaea;
+    margin-top: 20px;
 }
 
 .bar {
-    width: 5px;
     margin: 0 1px;
-    background-color: #6200ea;
+    background-color: #5e3b91;
     transition: height 0.3s, background-color 0.3s;
 }
 
 .bar.comparing {
-    background-color: #ff5722;
+    background-color: #f39c12;
 }
 
 .bar.swapping {
-    background-color: #4caf50;
+    background-color: #e74c3c;
 }
